@@ -1,0 +1,3 @@
+[submodule "typst-slides"]
+	path = typst-slides
+	url = https://github.com/andreasKroepelin/typst-slides.git
