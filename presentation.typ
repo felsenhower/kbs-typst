@@ -131,19 +131,35 @@
 
 = Tutorial
 
-#let typst_example(filename) = [
-  #table(
+#let typst_example(
+  filename,
+  rendered: false, 
+  cropped: false,
+  width: auto,
+  height: auto
+) = [
+  #grid(
     columns: (1fr,1fr),
-    stroke: 1pt,
-    raw(read(filename), lang: "typ"),
-    include(filename),
+    raw(read(filename + ".typ"), lang: "typ"),
+    box(stroke: (left: 1pt), inset: (left: 5mm), height: 100%)[
+    #{
+      if rendered {
+        if cropped {
+          image(filename + "-crop.svg", width: width, height: height)
+        } else {
+          image(filename + ".svg", width: width, height: height)
+        }
+      } else {
+        include(filename + ".typ")
+      }
+    }]
   )
 ]
 
 #slide[
   == Mein erstes Dokument
 
-  #typst_example("examples/01.typ")
+  #typst_example("examples/01", rendered: true, cropped: true, width: 70%)
 ]
 
 
