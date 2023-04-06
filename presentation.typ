@@ -54,11 +54,11 @@
   #align(center + horizon)[
     #grid(columns: (50%, 30%),
       align(center + horizon)[
-        #image(height: 150%, "reddit.png")
+        #image(height: 150%, "assets/reddit.png")
       ],
       align(center + horizon)[
         #beginning(2)[
-          #image(height: 150%, "github.png")
+          #image(height: 150%, "assets/github.png")
         ]
       ]
     )
