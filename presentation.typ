@@ -110,22 +110,43 @@
   )
 ]
 
-= Setup
-
-== Command Line
-
-- Installiere `typst`
-- `typst foo.typ`
-
-== Online App
+= Benutzung
 
 
 
-== VS Code
+#slide[
+  #v(-15mm)
+
+  == Benutzung
+
+  + Command Line
+    - #beginning(2)[https://github.com/typst/typst]
+    - #beginning(2)[`typst foo.typ`]
+  + Online App
+    - #beginning(3)[https://typst.app]
+  + Visual Studio Code
+    - #beginning(4)[https://github.com/nvarner/typst-lsp]
+  + ... 
+]
 
 = Tutorial
 
-== Mein erstes Dokument
+#let typst_example(filename) = [
+  #table(
+    columns: (1fr,1fr),
+    stroke: 1pt,
+    raw(read(filename), lang: "typ"),
+    include(filename),
+  )
+]
+
+#slide[
+  == Mein erstes Dokument
+
+  #typst_example("examples/01.typ")
+]
+
+
 
 == ...
 
