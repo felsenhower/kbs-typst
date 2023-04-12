@@ -10,7 +10,7 @@
     subtitle: "Der LaTeX-Killer?",
     short-title: "Typst – Der LaTeX-Killer?",
     date: "02.05.2023",
-    theme: slides-default-theme(color: red)
+    theme: slides-default-theme(color: rgb("#cc0000"))
 )
 
 #set text(
