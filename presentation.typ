@@ -40,6 +40,8 @@
 #let yes = text(blue, sym.checkmark)
 #let no = text(red, [*#sym.times*])
 
+#show link: content => underline[#content]
+
 = Introduction
 
 #slide[
@@ -106,7 +108,6 @@
     [Einfache Syntax], no, yes,
     [Einfaches Scripting], no, yes,
     [Viele Packages], yes, no,
-    [TikZ], yes, no,
   )
 ]
 
@@ -131,27 +132,26 @@
 
 = Tutorial
 
+#slide[
+  == Tutorial
+
+  - Die folgenden Folien orientieren sich stark am #link(
+    "https://typst.app/docs/tutorial/"
+    )[Typst-Tutorial].
+]
+
 #let typst_example(
   filename,
-  rendered: false, 
-  cropped: false,
-  width: auto,
-  height: auto
 ) = [
   #grid(
+    gutter: 5mm,
     columns: (1fr,1fr),
-    raw(read(filename + ".typ"), lang: "typ"),
-    box(stroke: (left: 1pt), inset: (left: 5mm), height: 100%)[
+    box(fill: luma(230), height: 100%, width: 100%, inset: 5mm)[
+      #raw(read(filename + ".typ"), lang: "typ")
+    ],
+    box(fill: luma(230), height: 100%, width: 100%, inset: 5mm)[
     #{
-      if rendered {
-        if cropped {
-          image(filename + "-crop.svg", width: width, height: height)
-        } else {
-          image(filename + ".svg", width: width, height: height)
-        }
-      } else {
-        include(filename + ".typ")
-      }
+      image(filename + ".svg")
     }]
   )
 ]
@@ -159,7 +159,14 @@
 #slide[
   == Mein erstes Dokument
 
-  #typst_example("examples/01", rendered: true, cropped: true, width: 70%)
+  #typst_example("examples/01")
+]
+
+
+#slide[
+  == Aufzählungen
+
+  #typst_example("examples/02")
 ]
 
 

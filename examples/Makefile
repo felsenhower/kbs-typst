@@ -1,8 +1,7 @@
 .PHONY: default all clean
 
-SOURCES := $(shell find . -name '*.typ')
+SOURCES := $(shell find . -regex '\./[0-9]+\.typ')
 TARGETS := $(SOURCES:%.typ=%.svg)
-TARGETS += $(SOURCES:%.typ=%-crop.svg)
 
 default: all
 
@@ -11,11 +10,11 @@ all: $(TARGETS)
 %.svg: %.pdf
 	pdf2svg $^ $@
 
-%-crop.pdf: %.pdf
-	pdfcrop $^
+%.pdf: %_with_template.typ
+	typst $^ $@
 
-%.pdf: %.typ
-	typst $^
+%_with_template.typ: template.typ %.typ
+	cat $^ > $@
 
 clean:
 	$(RM) $(TARGETS)
