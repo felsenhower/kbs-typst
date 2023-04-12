@@ -7,7 +7,7 @@ default: all
 all: $(TARGETS)
 
 %.pdf: %.typ examples
-	typst $<
+	typst compile $<
 
 examples:
 	$(MAKE) -C examples

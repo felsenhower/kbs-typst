@@ -11,7 +11,7 @@ all: $(TARGETS)
 	pdf2svg $^ $@
 
 %.pdf: %_with_template.typ
-	typst $^ $@
+	typst compile $^ $@
 
 %_with_template.typ: template.typ %.typ
 	cat $^ > $@

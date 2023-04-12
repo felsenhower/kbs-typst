@@ -1,52 +1,30 @@
 #import "typst-slides/slides.typ": *
+#import "latex-logo.typ": LaTeX
+
+#show "LaTeX": name => LaTeX
+
+#show: slides.with(
+    authors: "Ruben 14felgenh",
+    short-authors: "Ruben 14felgenh",
+    title: "Typst",
+    subtitle: "Der LaTeX-Killer?",
+    short-title: "Typst – Der LaTeX-Killer?",
+    date: "02.05.2023",
+    theme: slides-default-theme(color: red)
+)
 
 #set text(
   font: "Latin Modern Sans"
 )
 
-#let LaTeX = {
-  let A = (
-    offset: (
-      x: -0.33em,
-      y: -0.3em,
-    ),
-    size: 0.7em,
-  )
-  let T = (
-    x_offset: -0.12em    
-  )
-  let E = (
-    x_offset: -0.2em,
-    y_offset: 0.23em,
-    size: 1em
-  )
-  let X = (
-    x_offset: -0.1em
-  )
-  [L#h(A.offset.x)#text(size: A.size, baseline: A.offset.y)[A]#h(T.x_offset)T#h(E.x_offset)#text(size: E.size, baseline: E.y_offset)[E]#h(X.x_offset)X]
-}
-
-#show "LaTeX": name => LaTeX
-
-#show: slides.with(
-    author: "Ruben 14felgenh",
-    short-author: "Ruben 14felgenh",
-    title: "Typst – Der LaTeX-Killer?",
-    short-title: "Typst – Der LaTeX-Killer?",
-    date: "2023",
-    color: rgb("#cc0000")
-)
+#show link: content => underline[#content]
 
 #let yes = text(blue, sym.checkmark)
 #let no = text(red, [*#sym.times*])
 
-#show link: content => underline[#content]
+#new-section("Introduction")
 
-= Introduction
-
-#slide[
-  == Disclaimer
-
+#slide(title: "Disclaimer")[
 - Ich laber möglicherweise Müll.
 - Ich liebe LaTeX!
 - #beginning(2)[(und jetzt auch Typst)]
@@ -56,20 +34,18 @@
   #align(center + horizon)[
     #grid(columns: (50%, 30%),
       align(center + horizon)[
-        #image(height: 150%, "assets/reddit.png")
+        #image(height: 85%, "assets/reddit.png")
       ],
       align(center + horizon)[
         #beginning(2)[
-          #image(height: 150%, "assets/github.png")
+          #image(height: 85%, "assets/github.png")
         ]
       ]
     )
   ]
 ]
 
-#slide[
-  == Was ist Typst?
-
+#slide(title: "Was ist Typst?")[
 - Typst ist…
   - ein Textsatzsystem und eine Markup-Sprache
   - #beginning(2)[superneu (Open Source Beta-Release: März 2023)]
@@ -79,9 +55,7 @@
   - #beginning(6)[geschrieben ist Rust]
 ]
 
-#slide[
-  == Word vs. Markdown vs. LaTeX vs Typst
-
+#slide(title: "Word vs. Markdown vs. LaTeX vs Typst")[
   #table(
     columns: (auto, 1fr, 1fr, 1fr, 1fr),
     align: center + horizon,
@@ -96,9 +70,7 @@
   \*: oder LibreOffice, Google Docs, …
 ]
 
-#slide[
-  == LaTeX vs Typst
-
+#slide(title: "LaTeX vs Typst")[
   #table(
     columns: (auto, 1fr, 1fr),
     align: center + horizon,
@@ -111,15 +83,9 @@
   )
 ]
 
-= Benutzung
+#new-section("Benutzung")
 
-
-
-#slide[
-  #v(-15mm)
-
-  == Benutzung
-
+#slide(title: "Benutzung")[
   + Command Line
     - #beginning(2)[https://github.com/typst/typst]
     - #beginning(2)[`typst foo.typ`]
@@ -130,11 +96,7 @@
   + ... 
 ]
 
-= Tutorial
-
-#slide[
-  == Tutorial
-
+#slide(title: "Tutorial")[
   - Die folgenden Folien orientieren sich stark am #link(
     "https://typst.app/docs/tutorial/"
     )[Typst-Tutorial].
@@ -146,31 +108,20 @@
   #grid(
     gutter: 5mm,
     columns: (1fr,1fr),
-    box(fill: luma(230), height: 100%, width: 100%, inset: 5mm)[
+    box(fill: luma(230), height: 75%, width: 100%, inset: 5mm)[
       #raw(read(filename + ".typ"), lang: "typ")
     ],
-    box(fill: luma(230), height: 100%, width: 100%, inset: 5mm)[
+    box(fill: luma(230), height: 75%, width: 100%, inset: 5mm)[
     #{
       image(filename + ".svg")
     }]
   )
 ]
 
-#slide[
-  == Mein erstes Dokument
-
+#slide(title: "Mein erstes Dokument")[
   #typst_example("examples/01")
 ]
 
-
-#slide[
-  == Aufzählungen
-
+#slide(title: "Aufzählungen")[
   #typst_example("examples/02")
 ]
-
-
-
-== ...
-
-= Advanced Usage
