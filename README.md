@@ -10,3 +10,5 @@ $ cd kbs-typst
 $ git submodule update --init
 $ make
 ```
+
+**⚠ Da sich Typst derzeit schnell weiterentwickelt, ist es möglich, dass der Inhalt dieses Repos nur mit bestimmten Versionen von Typst baut!**
