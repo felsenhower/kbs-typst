@@ -107,7 +107,7 @@
 ]
 
 #slide(title: "Tutorial")[
-  - Die folgenden Folien orientieren sich stark am #link(
+  - Die folgenden Folien orientieren sich teilweise am #link(
     "https://typst.app/docs/tutorial/"
     )[Typst-Tutorial].
 ]
@@ -132,6 +132,41 @@
   #typst_example("examples/01")
 ]
 
-#slide(title: "Aufzählungen")[
+#slide(title: "Mein erstes Dokument")[
   #typst_example("examples/02")
 ]
+
+#slide(title: "Lorem Ipsum" + footnote("https://de.wikipedia.org/wiki/Lorem_ipsum"))[
+  #text(size: 17pt)[
+    #grid(
+      gutter: 5mm,
+      columns: (1fr,1fr),
+      box(fill: luma(230), height: 64%, width: 100%, inset: 5mm)[
+        #raw(read("examples/lorem.py"), lang: "py")
+      ],
+      box(fill: luma(230), height: 64%, width: 100%, inset: 5mm)[
+        #beginning(2)[
+        #raw(read("examples/lorem.typ"), lang: "typ")
+        ]
+      ]
+    )
+  ]
+  
+#v(-5mm)
+
+  #footnotes()
+]
+
+// #slide(title: "lorem.py (Beispiel)" + footnote("https://de.wikipedia.org/wiki/Lorem_ipsum"))[
+//   #text(size: 20pt)[
+//     
+//   ]
+
+//   #footnotes()
+// ]
+
+// #slide(title: "lorem.typ")[
+//   #text(size: 20pt)[
+//     #raw(read("examples/lorem.typ"), lang: "typ")
+//   ]
+// ]

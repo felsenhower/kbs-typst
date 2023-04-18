@@ -1,5 +1,5 @@
-+ The climate
-  - Temperature
-  - Precipitation
-+ The topography
-+ The geology
+#heading[Einführung]
+
+Mein erster Text mit Typst!
+
+#lorem(20)
