@@ -1,4 +1,5 @@
 #import "typst-modules/typst-slides/slides.typ": *
+#import "typst-modules/notes.typ/notes.typ": note, notes
 #import "latex-logo.typ": LaTeX
 
 #show "LaTeX": name => LaTeX
@@ -18,6 +19,14 @@
 )
 
 #show link: content => underline[#content]
+
+#let footnote = note
+
+#let footnotes() = notes(
+  size: 18pt,
+  font: "Latin Modern Sans",
+  line: line(length: 100%, stroke: 1pt + black)
+)
 
 #let yes = text(blue, sym.checkmark)
 #let no = text(red, [*#sym.times*])
@@ -59,7 +68,7 @@
   #table(
     columns: (auto, 1fr, 1fr, 1fr, 1fr),
     align: center + horizon,
-    [], [*Word\**], [*Markdown*], [*LaTeX*], [*Typst*],
+    [], [*Word#footnote[oder LibreOffice, Google Docs, …]*], [*Markdown*], [*LaTeX*], [*Typst*],
     [WYSIWYG], yes, no, no, no,
     [sieht gut aus], no, [(#yes)], yes, yes,
     [Inhalt / Format getrennt], no, [(#yes)], yes, yes,
@@ -67,7 +76,8 @@
     [gut für Teamarbeit], no, [(#yes)], [(#yes)], yes,
   )
 
-  \*: oder LibreOffice, Google Docs, …
+  #footnotes()
+
 ]
 
 #slide(title: "LaTeX vs Typst")[

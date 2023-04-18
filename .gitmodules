@@ -1,3 +1,6 @@
 [submodule "typst-slides"]
 	path = typst-modules/typst-slides
 	url = https://github.com/andreasKroepelin/typst-slides.git
+[submodule "typst-modules/notes.typ"]
+	path = typst-modules/notes.typ
+	url = https://github.com/tbug/notes.typ.git
