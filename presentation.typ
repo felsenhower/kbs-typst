@@ -103,6 +103,8 @@
     - #beginning(3)[https://typst.app]
   + Visual Studio Code
     - #beginning(4)[https://github.com/nvarner/typst-lsp]
+  + typstudio?
+    - #beginning(5)[https://github.com/Cubxity/typstudio]
   + ... 
 ]
 
