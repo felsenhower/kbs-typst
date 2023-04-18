@@ -1,4 +1,4 @@
-#import "typst-slides/slides.typ": *
+#import "typst-modules/typst-slides/slides.typ": *
 #import "latex-logo.typ": LaTeX
 
 #show "LaTeX": name => LaTeX
