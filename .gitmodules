@@ -4,3 +4,6 @@
 [submodule "typst-modules/notes.typ"]
 	path = typst-modules/notes.typ
 	url = https://github.com/tbug/notes.typ.git
+[submodule "typst-modules/typst-cd"]
+	path = typst-modules/typst-cd
+	url = https://gitlab.com/giacomogallina/typst-cd.git

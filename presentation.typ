@@ -1,5 +1,6 @@
 #import "typst-modules/typst-slides/slides.typ": *
 #import "typst-modules/notes.typ/notes.typ": note, notes
+#import "typst-modules/typst-cd/typst-cd.typ": node, arr, commutative_diagram
 #import "latex-logo.typ": LaTeX
 
 #show "LaTeX": name => LaTeX
@@ -159,16 +160,37 @@
   #footnotes()
 ]
 
-// #slide(title: "lorem.py (Beispiel)" + footnote("https://de.wikipedia.org/wiki/Lorem_ipsum"))[
-//   #text(size: 20pt)[
-//     
-//   ]
+#slide(title: "Typen")[
+  - Es gibt die Typen
+  #align(right)[
+    #box(width: 95%, height: 35%)[
+      #align(left)[
+        #columns(4, [
+        - none
+        - boolean
+        - integer
+        - float
+        #colbreak()
+        - length
+        - angle  
+        - ratio
+        - relative length
+        #colbreak()
+        - fraction
+        - color
+        - symbol
+        - array
+        #colbreak()
+        - dict
+        - function
+        - *string*
+        - *content*
+        - …
+        ])
+      ]
+    ]
+  ]
 
-//   #footnotes()
-// ]
-
-// #slide(title: "lorem.typ")[
-//   #text(size: 20pt)[
-//     #raw(read("examples/lorem.typ"), lang: "typ")
-//   ]
-// ]
+  - *Alles* ist implizit zu *content* konvertierbar
+  
+]
