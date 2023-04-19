@@ -1,6 +1,10 @@
 #import "typst-modules/typst-slides/slides.typ": *
 #import "typst-modules/notes.typ/notes.typ": note, notes
 #import "typst-modules/typst-cd/typst-cd.typ": node, arr, commutative_diagram
+#import "typst-modules/typst-tablex/tablex.typ": tablex, cellx, colspanx, rowspanx
+#import "typst-modules/typst-algorithms/algo.typ" : *
+#import "typst-modules/typst-physics/physics.typ": *
+
 #import "latex-logo.typ": LaTeX
 
 #show "LaTeX": name => LaTeX
@@ -15,8 +19,11 @@
     theme: slides-default-theme(color: rgb("#cc0000"))
 )
 
+#let slides_font = "Latin Modern Sans"
+#let small_size = 17pt
+
 #set text(
-  font: "Latin Modern Sans"
+  font: slides_font
 )
 
 #show link: content => underline[#content]
@@ -24,13 +31,46 @@
 #let footnote = note
 
 #let footnotes() = notes(
-  size: 18pt,
-  font: "Latin Modern Sans",
+  size: small_size,
+  font: slides_font,
   line: line(length: 100%, stroke: 1pt + black)
 )
 
 #let yes = text(blue, sym.checkmark)
 #let no = text(red, [*#sym.times*])
+
+#let side-by-side-example(
+  height: auto,
+  fill: luma(235),
+  a,
+  b
+) = [
+  #set box(
+    fill: fill,
+    height: height,
+    width: 100%,
+    inset: 5mm
+  )
+  #text(size: small_size)[
+    #grid(
+      gutter: 5mm,
+      columns: 2,
+      box[#a],
+      box[#b]
+    )
+  ]
+]
+
+#let typst-example(
+  height: 64%,
+  filename
+) = [
+  #side-by-side-example(height: height, [
+    #raw(read(filename + ".typ"), lang: "typ")
+  ], [
+    #image(filename + ".svg")
+  ])
+]
 
 #new-section("Introduction")
 
@@ -115,47 +155,25 @@
     )[Typst-Tutorial].
 ]
 
-#let typst_example(
-  filename,
-) = [
-  #grid(
-    gutter: 5mm,
-    columns: (1fr,1fr),
-    box(fill: luma(230), height: 75%, width: 100%, inset: 5mm)[
-      #raw(read(filename + ".typ"), lang: "typ")
-    ],
-    box(fill: luma(230), height: 75%, width: 100%, inset: 5mm)[
-    #{
-      image(filename + ".svg")
-    }]
+#slide(title: "Mein erstes Dokument")[
+  #typst-example(height: 50%, "examples/01")
+]
+
+#slide(title: "Mein erstes Dokument")[
+  #typst-example(height: 50%, "examples/02")
+]
+
+#slide(
+  title: "Lorem Ipsum" + footnote("https://de.wikipedia.org/wiki/Lorem_ipsum")
+)[
+  #side-by-side-example(height: 64%,
+    raw(read("examples/lorem.py"), lang: "py"),
+    beginning(2)[
+      #raw(read("examples/lorem.typ"), lang: "typ")
+    ]
   )
-]
-
-#slide(title: "Mein erstes Dokument")[
-  #typst_example("examples/01")
-]
-
-#slide(title: "Mein erstes Dokument")[
-  #typst_example("examples/02")
-]
-
-#slide(title: "Lorem Ipsum" + footnote("https://de.wikipedia.org/wiki/Lorem_ipsum"))[
-  #text(size: 17pt)[
-    #grid(
-      gutter: 5mm,
-      columns: (1fr,1fr),
-      box(fill: luma(230), height: 64%, width: 100%, inset: 5mm)[
-        #raw(read("examples/lorem.py"), lang: "py")
-      ],
-      box(fill: luma(230), height: 64%, width: 100%, inset: 5mm)[
-        #beginning(2)[
-        #raw(read("examples/lorem.typ"), lang: "typ")
-        ]
-      ]
-    )
-  ]
   
-#v(-5mm)
+  #v(-5mm)
 
   #footnotes()
 ]
@@ -193,4 +211,179 @@
 
   - *Alles* ist implizit zu *content* konvertierbar
   
+]
+
+#new-section("Packages")
+
+#slide(title: "Packages")[
+  #v(10mm)
+
+  - Viele#footnote(
+      "(eigentlich selbstverständliche)"
+    ) Dinge müssen über Packages "nachgerüstet" werden
+  - Derzeit gibt es *keinen* Package-Manager.
+  - Viele hilfreiche Packages gibt es hier: \
+    https://github.com/qjcg/awesome-typst
+
+  #v(10mm)
+
+  #footnotes()
+]
+
+#slide(title: "Templates")[
+  Es gibt Templates für jeden Scheiß:
+  - Paper (IEEE, MLA, …)
+  - Thesis
+  - CV
+  - Hausaufgaben
+  - Briefe
+  - Poster
+  - Slides
+  - …
+]
+
+#slide(title: "Slides")[
+  - https://github.com/andreasKroepelin/typst-slides
+    - Seht ihr hier gerade
+    - Unterstützt Themes
+]
+
+#slide(title: "Footnotes")[
+  - https://github.com/tbug/notes.typ
+    - Konfigurierbar#footnote("foo")
+
+  - https://github.com/saadulkh/typst-notes
+    - Einfach
+
+  #footnotes()
+]
+
+#slide(title: "Bessere Tabellen")[
+  - https://github.com/PgBiel/typst-tablex
+
+  #v(10mm)
+
+  #align(center + horizon)[
+    #tablex(
+      columns: 3,
+      fill: red,
+      align: right,
+      colspanx(2)[a], (),  [beeee],
+      [c], rowspanx(2)[d], cellx(fill: blue, align: left)[e],
+      [f], (),             [g],
+
+      // place this cell at the first column, seventh row
+      cellx(colspan: 3, align: center, x: 0, y: 6)[hi I'm down here]
+    )
+  ]
+]
+
+#slide(title: "Diagramme")[
+  - https://github.com/johannes-wolf/typst-plot
+
+  #v(-10mm)
+
+  #grid(
+    columns: 3,
+    image("assets/typst-plot/tic-label.png", width: 110%),
+    image("assets/typst-plot/parametric.png", width: 110%),
+    image("assets/typst-plot/multi.png", width: 110%)
+  )
+  #v(-50mm)
+]
+
+#slide(title: "Diagramme")[
+  - https://github.com/johannes-wolf/typst-canvas
+
+  #align(center + horizon)[
+    #image("assets/typst-canvas/3d-diagram.svg", width: 40%)
+  ]
+]
+
+#slide(title: "Diagramme")[
+  - https://gitlab.com/giacomogallina/typst-cd
+
+  #v(-30mm)
+
+  #text(size: small_size)[
+    #align(center + horizon)[
+      #commutative_diagram(width: 300pt, height: 200pt,
+        node((0, 0), [$pi_1(X sect Y)$]),
+        node((0, 1), [$pi_1(Y)$]),
+        node((1, 0), [$pi_1(X)$]),
+        node((1, 1), [$pi_1(Y) ast.op_(pi_1(X sect Y)) pi_1(X)$]),
+        arr((0, 0), (0, 1), [$i_1$], label_pos: -1em, "inj"),
+        arr((0, 0), (1, 0), [$i_2$], "inj"),
+        arr((1, 0), (2, 2), [$j_1$], curve: -15deg, "surj"),
+        arr((0, 1), (2, 2), [$j_2$], label_pos: -1em, curve: 20deg, "def"),
+        arr((1, 1), (2, 2), [$k$], label_pos: 0, "dashed", "bij"),
+        arr((1, 0), (1, 1), [], "dashed", "inj", "surj"),
+        arr((0, 1), (1, 1), [], "dashed", "inj"),
+        node((2, 2), [$pi_1(X union Y)$])
+      )
+    ]
+  ]
+]
+
+#slide(title: "Algorithmen")[
+  - https://github.com/platformer/typst-algorithms
+
+  #side-by-side-example(fill: none,
+    [
+      #algo(
+        title: "Fibonacci",
+        parameters: ("n",)
+      )[
+        if $n < 0$:#i\
+          return null#d\
+        if $n = 0$ or $n = 1$:#i\
+          return $n$#d\
+        return #smallcaps("Fibonacci")$(n-1) +$ #smallcaps("Fibonacci")$(n-2)$
+      ]
+    ],
+    [
+      #code()[
+        ```py
+        def fibonacci(n):
+          if n < 0:
+            return None
+          if n == 0 or n == 1:
+            return n
+          return fibonacci(n-1) + fibonacci(n-2)
+        ```
+      ]
+    ]
+  )
+]
+
+#slide(title: "Physik")[
+  - https://github.com/Leedehai/typst-physics
+
+  #typst-example(height: 50%, "examples/03")
+
+]
+
+#slide(title: "Raytracer ಠ_ಠ")[
+  #v(-30mm)
+
+  - https://github.com/SeniorMars/typst-raytracer
+
+  #v(-20mm)
+
+  #align(center + horizon)[
+    #rotate(90deg)[
+      #image("assets/typst-raytracer/mandel.png", height: 80%)
+    ]
+  ]
+
+  #v(-100mm)
+
+]
+
+#new-section("Misc")
+
+#slide(title: "Planned Features")[
+  #align(center + horizon)[
+    #image("assets/planned_features.png", width: 80%)
+  ]
 ]

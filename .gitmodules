@@ -7,3 +7,12 @@
 [submodule "typst-modules/typst-cd"]
 	path = typst-modules/typst-cd
 	url = https://gitlab.com/giacomogallina/typst-cd.git
+[submodule "typst-modules/typst-tablex"]
+	path = typst-modules/typst-tablex
+	url = https://github.com/PgBiel/typst-tablex
+[submodule "typst-modules/typst-algorithms"]
+	path = typst-modules/typst-algorithms
+	url = https://github.com/platformer/typst-algorithms
+[submodule "typst-modules/typst-physics"]
+	path = typst-modules/typst-physics
+	url = https://github.com/Leedehai/typst-physics
