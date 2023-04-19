@@ -40,29 +40,6 @@
 #let yes = text(blue, sym.checkmark)
 #let no = text(red, [*#sym.times*])
 
-#let side-by-side-example(style,
-  // height: auto,
-  // fill: luma(235),
-  a,
-  b
-) = [
-  #let box_params = (
-    radius: 5mm,
-    stroke: 2pt + fill,
-    height: height,
-    width: 100%,
-    inset: 5mm
-  )
-  #text(size: small_size)[
-    #grid(
-      gutter: 5mm,
-      columns: 2,
-      box(..box_params)[#a],
-      box(..box_params, fill: fill)[#b]
-    )
-  ]
-]
-
 #let side-by-side-example(
   height: auto,
   a,
@@ -533,4 +510,16 @@
 
 #slide(title: "Fazit")[
 
+]
+
+#slide(theme-variant: "wake up")[
+
+]
+
+#slide(title: "Wieso ist typst so schnell?")[
+
+]
+
+#slide(title: "Packages importieren")[
+  
 ]
