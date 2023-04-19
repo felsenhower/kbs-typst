@@ -40,14 +40,15 @@
 #let yes = text(blue, sym.checkmark)
 #let no = text(red, [*#sym.times*])
 
-#let side-by-side-example(
-  height: auto,
-  fill: luma(235),
+#let side-by-side-example(style,
+  // height: auto,
+  // fill: luma(235),
   a,
   b
 ) = [
-  #set box(
-    fill: fill,
+  #let box_params = (
+    radius: 5mm,
+    stroke: 2pt + fill,
     height: height,
     width: 100%,
     inset: 5mm
@@ -56,8 +57,30 @@
     #grid(
       gutter: 5mm,
       columns: 2,
-      box[#a],
-      box[#b]
+      box(..box_params)[#a],
+      box(..box_params, fill: fill)[#b]
+    )
+  ]
+]
+
+#let side-by-side-example(
+  height: auto,
+  a,
+  b
+) = [
+  #let box_params = (
+    radius: 5mm,
+    stroke: 2pt + luma(235),
+    height: height,
+    width: 100%,
+    inset: 5mm
+  )
+  #text(size: small_size)[
+    #grid(
+      gutter: 5mm,
+      columns: 2,
+      box(..box_params)[#a],
+      box(..box_params)[#b]
     )
   ]
 ]
@@ -66,11 +89,46 @@
   height: 64%,
   filename
 ) = [
-  #side-by-side-example(height: height, [
-    #raw(read(filename + ".typ"), lang: "typ")
-  ], [
-    #image(filename + ".svg")
-  ])
+  #let color = luma(235)
+  #let box_params = (
+    radius: 5mm,
+    stroke: 2pt + color,
+    height: height,
+    width: 100%,
+    inset: 5mm
+  )
+  #text(size: small_size)[
+    #grid(
+      gutter: 5mm,
+      columns: 2,
+      box(..box_params)[
+        #raw(read(filename + ".typ"), lang: "typ")
+      ],
+      box(..box_params, fill: color)[
+        #box(fill: white, width: 100%, height: auto, inset: 2mm)[
+          #image(filename + ".svg", width: 100%)
+        ]
+      ]
+    )
+  ]
+]
+
+#let typst-source(
+  filename
+) = [
+  #let color = luma(235)
+  #let box_params = (
+    radius: 5mm,
+    stroke: 2pt + color,
+    height: auto,
+    width: 100%,
+    inset: 5mm
+  )
+  #text(size: small_size)[
+    #box(..box_params)[
+      #raw(read(filename + ".typ"), lang: "typ")
+    ]
+  ]
 ]
 
 #let quirk-slide(content) = {
@@ -222,8 +280,25 @@
   #typst-example(height: 50%, "examples/09")
 ]
 
+#slide(title: "Formatierung")[
+  #typst-example(height: 50%, "examples/10")
+]
 
-#slide(theme-variant: "wake up")[]
+#slide(title: "Formatierung")[
+  #typst-example(height: 50%, "examples/11")
+]
+
+#slide(title: "Formatierung")[
+  #typst-example(height: 50%, "examples/12")
+]
+
+#slide(title: "Formatierung")[
+  #typst-source("examples/13")
+]
+
+#quirk-slide[
+  Bisher gibt es keine `datetime`-Funktionalität.
+]
 
 #slide(
   title: "Lorem Ipsum" + footnote("https://de.wikipedia.org/wiki/Lorem_ipsum")
@@ -282,6 +357,12 @@
 ]
 
 #new-section("Packages")
+
+#slide(title: "Planned Features")[
+  #align(center + horizon)[
+    #image("assets/planned_features.png", width: 80%)
+  ]
+]
 
 #slide(title: "Packages")[
   #v(10mm)
@@ -396,7 +477,7 @@
 #slide(title: "Algorithmen")[
   - https://github.com/platformer/typst-algorithms
 
-  #side-by-side-example(fill: none,
+  #side-by-side-example(
     [
       #algo(
         title: "Fibonacci",
@@ -448,16 +529,8 @@
 
 ]
 
-#new-section("Misc")
+#new-section[Fazit]
 
-#slide(title: "Planned Features")[
-  #align(center + horizon)[
-    #image("assets/planned_features.png", width: 80%)
-  ]
-]
+#slide(title: "Fazit")[
 
-#new-section("Quirks")
-
-#quirk-slide[
-  Bisher gibt es keine `datetime`-Funktionalität.
 ]
