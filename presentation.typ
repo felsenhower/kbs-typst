@@ -128,9 +128,12 @@
 #new-section("Introduction")
 
 #slide(title: "Disclaimer")[
-- Ich laber möglicherweise Müll.
-- Ich liebe LaTeX!
-- #only((beginning: 2))[(und jetzt auch Typst)]
+  #one-by-one[
+    - Ich laber möglicherweise Müll.
+    - Ich liebe LaTeX!
+  ][
+    - (und jetzt auch Typst)
+  ]
 ]
 
 #slide[
@@ -140,7 +143,7 @@
         #image(height: 85%, "assets/reddit.png")
       ],
       align(center + horizon)[
-        #only((beginning: 2))[
+        #uncover("2-")[
           #image(height: 85%, "assets/github.png")
         ]
       ]
@@ -150,12 +153,14 @@
 
 #slide(title: "Was ist Typst?")[
 - Typst ist…
-  - ein Textsatzsystem und eine Markup-Sprache
-  - #only((beginning: 2))[superneu (Open Source Beta-Release: März 2023)]
-  - #only((beginning: 3))[superschnell]
-  - #only((beginning: 4))[supereinfach]
-  - #only((beginning: 5))[typisiert]
-  - #only((beginning: 6))[geschrieben ist Rust]
+  #uncover("2-")[#line-by-line(start: 2)[
+    - ein Textsatzsystem und eine Markup-Sprache
+    - superneu (Open Source Beta-Release: März 2023)
+    - superschnell
+    - supereinfach
+    - typisiert
+    - geschrieben ist Rust
+  ]]
 ]
 
 #slide(title: "Word vs. Markdown vs. LaTeX vs Typst")[
@@ -175,15 +180,21 @@
 ]
 
 #slide(title: "LaTeX vs Typst")[
+  
+  #let latex-no-typst-yes(text) = (uncover("1-")[#text], uncover("1-")[#no], uncover("1-")[#yes],)
+  #let latex-yes-typst-no(text) = (uncover("2-")[#text], uncover("2-")[#yes], uncover("2-")[#no],)
+  #let latex-yes-typst-yes(text) = (uncover("3-")[#text], uncover("3-")[#yes], uncover("3-")[#yes],)
   #table(
     columns: (auto, 1fr, 1fr),
     align: center + horizon,
     [], [*LaTeX*], [*Typst*],
-    [kompiliert schnell], no, yes,
-    [Gute Fehlermeldungen], no, yes,
-    [Einfache Syntax], no, yes,
-    [Einfaches Scripting], no, yes,
-    [Viele Packages], yes, no,
+    ..latex-no-typst-yes[kompiliert schnell],
+    ..latex-no-typst-yes[Gute Fehlermeldungen],
+    ..latex-no-typst-yes[Einfache Syntax],
+    ..latex-no-typst-yes[Einfaches Scripting],
+    ..latex-yes-typst-no[Viele Packages],
+    ..latex-yes-typst-no[Verbreitung],
+    ..latex-yes-typst-yes[Beschissener Name],
   )
 ]
 
@@ -191,14 +202,22 @@
 
 #slide(title: "Benutzung")[
   + Command Line
-    - #only((beginning: 2))[https://github.com/typst/typst]
-    - #only((beginning: 2))[`typst foo.typ`]
+    #uncover("2-")[
+      - https://github.com/typst/typst
+      - `typst foo.typ`
+    ]
   + Online App
-    - #only((beginning: 3))[https://typst.app]
+    #uncover("3-")[
+      - https://typst.app
+    ]
   + Visual Studio Code
-    - #only((beginning: 4))[https://github.com/nvarner/typst-lsp]
-  + typstudio?
-    - #only((beginning: 5))[https://github.com/Cubxity/typstudio]
+    #uncover("4-")[
+      - https://github.com/nvarner/typst-lsp
+    ]
+  + IDE?
+    #uncover("5-")[
+      - https://github.com/Cubxity/typstudio
+    ]
   + ... 
 ]
 
@@ -278,18 +297,19 @@
 ]
 
 #slide(
-  title: "Lorem Ipsum" + footnote("https://de.wikipedia.org/wiki/Lorem_ipsum")
-)[
-  #side-by-side-example(height: 64%,
+  title: "Lorem Ipsum")[
+  /*title: "Lorem Ipsum" + footnote("https://de.wikipedia.org/wiki/Lorem_ipsum")
+)[*/
+  #side-by-side-example(height: 72%,
     raw(read("examples/lorem.py"), lang: "py"),
-    only((beginning: 2))[
+    uncover((beginning: 2))[
       #raw(read("examples/lorem.typ"), lang: "typ")
     ]
   )
-  
+  /*
   #v(-5mm)
 
-  #footnotes()
+  #footnotes()*/
 ]
 
 #slide(title: "Typen")[
