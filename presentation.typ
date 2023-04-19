@@ -130,7 +130,7 @@
 #slide(title: "Disclaimer")[
 - Ich laber möglicherweise Müll.
 - Ich liebe LaTeX!
-- #beginning(2)[(und jetzt auch Typst)]
+- #only((beginning: 2))[(und jetzt auch Typst)]
 ]
 
 #slide[
@@ -140,7 +140,7 @@
         #image(height: 85%, "assets/reddit.png")
       ],
       align(center + horizon)[
-        #beginning(2)[
+        #only((beginning: 2))[
           #image(height: 85%, "assets/github.png")
         ]
       ]
@@ -151,11 +151,11 @@
 #slide(title: "Was ist Typst?")[
 - Typst ist…
   - ein Textsatzsystem und eine Markup-Sprache
-  - #beginning(2)[superneu (Open Source Beta-Release: März 2023)]
-  - #beginning(3)[superschnell]
-  - #beginning(4)[supereinfach]
-  - #beginning(5)[typisiert]
-  - #beginning(6)[geschrieben ist Rust]
+  - #only((beginning: 2))[superneu (Open Source Beta-Release: März 2023)]
+  - #only((beginning: 3))[superschnell]
+  - #only((beginning: 4))[supereinfach]
+  - #only((beginning: 5))[typisiert]
+  - #only((beginning: 6))[geschrieben ist Rust]
 ]
 
 #slide(title: "Word vs. Markdown vs. LaTeX vs Typst")[
@@ -191,14 +191,14 @@
 
 #slide(title: "Benutzung")[
   + Command Line
-    - #beginning(2)[https://github.com/typst/typst]
-    - #beginning(2)[`typst foo.typ`]
+    - #only((beginning: 2))[https://github.com/typst/typst]
+    - #only((beginning: 2))[`typst foo.typ`]
   + Online App
-    - #beginning(3)[https://typst.app]
+    - #only((beginning: 3))[https://typst.app]
   + Visual Studio Code
-    - #beginning(4)[https://github.com/nvarner/typst-lsp]
+    - #only((beginning: 4))[https://github.com/nvarner/typst-lsp]
   + typstudio?
-    - #beginning(5)[https://github.com/Cubxity/typstudio]
+    - #only((beginning: 5))[https://github.com/Cubxity/typstudio]
   + ... 
 ]
 
@@ -282,7 +282,7 @@
 )[
   #side-by-side-example(height: 64%,
     raw(read("examples/lorem.py"), lang: "py"),
-    beginning(2)[
+    only((beginning: 2))[
       #raw(read("examples/lorem.typ"), lang: "typ")
     ]
   )
