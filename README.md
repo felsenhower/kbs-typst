@@ -20,5 +20,5 @@ $ make
 ## Anmerkungen:
 
 * Dieses Repo enthält ein paar Submodules (in [`typst-modules`](typst-modules)), die zum Bauen benötigt werden.
-* In [`examples`](examples) befinden sich ein paar Typst-Beispiele, die zum Bauen der Präsentations benötigt werden (`make` macht das automatisch).
+* In [`examples`](examples) befinden sich ein paar Typst-Beispiele, die vor dem Bauen der Präsentation erst zu PDF kompiliert und zu SVG konvertiert werden müssen (`make` macht das automatisch).
 * Da sich Typst derzeit schnell weiterentwickelt, ist es möglich, dass der Inhalt dieses Repos nur mit bestimmten Versionen von Typst baut.
