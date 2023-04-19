@@ -23,7 +23,8 @@
 #let small_size = 17pt
 
 #set text(
-  font: slides_font
+  font: slides_font,
+  lang: "de"
 )
 
 #show link: content => underline[#content]
@@ -71,6 +72,23 @@
     #image(filename + ".svg")
   ])
 ]
+
+#let quirk-slide(content) = {
+  let num_images = 10
+  let images = num_images * (image("assets/vz123.svg"), )
+  let image_grid = grid(columns: num_images, ..images)
+  slide()[
+    #align(center + horizon)[
+      #box(width: 110%, height: 88%)[
+        #align(center + top)[#image_grid]
+        #align(center + horizon)[
+          #content
+        ]
+        #align(center + bottom)[#image_grid]
+      ]
+    ]
+  ]
+}
 
 #new-section("Introduction")
 
@@ -163,6 +181,50 @@
   #typst-example(height: 50%, "examples/02")
 ]
 
+#slide(title: "Aufzählungen")[
+  #typst-example(height: 50%, "examples/04")
+]
+
+#slide(title: "Bilder")[
+  #typst-example(height: 50%, "examples/05")
+
+  - Unterstützt wird PNG, JPG, GIF, und SVG
+]
+
+#quirk-slide()[
+  PDF wird nicht unterstützt ಠ_ಠ
+]
+
+#slide(title: "Bilder")[
+  #typst-example(height: 50%, "examples/06")
+]
+
+#slide(title: "Bilder")[
+  #typst-example(height: 50%, "examples/07")
+]
+
+#slide(title: "Bibliographie")[
+  #show "LaTeX": name => [#text[La]#text[TeX]] // wtf...
+  #typst-example(height: 50%, "examples/08")
+
+  - Format: Hayagriva oder BibLaTeX
+]
+
+#slide(title: "Bibliographie")[
+  `bibliography.yml`:
+
+  #text(size: small_size)[
+    #raw(read("examples/bibliography.yml"), lang: "yaml")
+  ]
+]
+
+#slide(title: "Mathe")[
+  #typst-example(height: 50%, "examples/09")
+]
+
+
+#slide(theme-variant: "wake up")[]
+
 #slide(
   title: "Lorem Ipsum" + footnote("https://de.wikipedia.org/wiki/Lorem_ipsum")
 )[
@@ -211,6 +273,12 @@
 
   - *Alles* ist implizit zu *content* konvertierbar
   
+]
+
+#quirk-slide[
+  Bisher gibt es keine Type Hints o.ä. für \
+  benutzerdefinierte 
+  Funktionen und Variablen.
 ]
 
 #new-section("Packages")
@@ -386,4 +454,10 @@
   #align(center + horizon)[
     #image("assets/planned_features.png", width: 80%)
   ]
+]
+
+#new-section("Quirks")
+
+#quirk-slide[
+  Bisher gibt es keine `datetime`-Funktionalität.
 ]

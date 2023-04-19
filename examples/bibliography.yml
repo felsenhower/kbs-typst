@@ -1,0 +1,11 @@
+mädje22:
+    type: thesis
+    title: Typst – A Programmable Markup Language for Typesetting
+    author: Mädje, Laurenz
+    date: 2022-09-08
+
+haug22:
+    type: thesis
+    title: Fast Typesetting with Incremental Compilation
+    author: Haug, Martin
+    date: 2022-06
