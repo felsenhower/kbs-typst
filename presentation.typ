@@ -4,6 +4,7 @@
 #import "typst-modules/typst-tablex/tablex.typ": tablex, cellx, colspanx, rowspanx
 #import "typst-modules/typst-algorithms/algo.typ" : *
 #import "typst-modules/typst-physics/physics.typ": *
+#import "hamburg.typ": *
 
 #import "latex-logo.typ": LaTeX
 
@@ -16,10 +17,10 @@
     subtitle: "Der LaTeX-Killer?",
     short-title: "Typst – Der LaTeX-Killer?",
     date: "02.05.2023",
-    theme: slides-default-theme(color: rgb("#cc0000"))
+    theme: slides-hamburg-theme()
 )
 
-#let slides_font = ("Latin Modern Sans", "Roboto Sans")
+#let slides_font = ("Latin Modern Sans", )
 #let small_size = 17pt
 
 #set text(
