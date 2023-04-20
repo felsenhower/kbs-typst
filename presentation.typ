@@ -163,6 +163,18 @@
   ]]
 ]
 
+#slide()[
+  #align(center + horizon)[
+    #image("assets/family_tree.png", height: 80%)
+
+    #v(-5mm)
+
+    #text(size: small_size)[
+      "Bild: Freepik.com". Dieses Cover wurde mit Ressourcen von Freepik.com erstellt. 
+    ]
+  ]
+]
+
 #slide(title: "Word vs. Markdown vs. LaTeX vs Typst")[
   #table(
     columns: (auto, 1fr, 1fr, 1fr, 1fr),
@@ -233,6 +245,10 @@
 
 #slide(title: "Mein erstes Dokument")[
   #typst-example(height: 50%, "examples/02")
+]
+
+#slide(title: "Mein erstes Dokument")[
+  #typst-example(height: 50%, "examples/14")
 ]
 
 #slide(title: "Aufzählungen")[
