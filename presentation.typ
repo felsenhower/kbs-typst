@@ -125,7 +125,7 @@
   ]
 }
 
-#new-section("Introduction")
+#new-section("Einführung")
 
 #slide(title: "Disclaimer")[
   #one-by-one[
@@ -134,6 +134,14 @@
   ][
     - (und jetzt auch Typst)
   ]
+]
+
+#slide(title: "Agenda")[
+  + Einführung
+  + Typesetting
+  + Scripting
+  + Packages
+  + Fazit
 ]
 
 #slide[
@@ -216,7 +224,7 @@
   + Command Line
     #uncover("2-")[
       - https://github.com/typst/typst
-      - `typst foo.typ`
+      - `typst compile foo.typ`
     ]
   + Online App
     #uncover("3-")[
