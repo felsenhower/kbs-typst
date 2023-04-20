@@ -1,4 +1,4 @@
-#let lorem(words) = {
+#let lorem2(words) = {
   let lorem_ipsum = "Lorem ipsum [...]"
   let arr = lorem_ipsum.split(" ")
   let n = calc.ceil(words / arr.len())

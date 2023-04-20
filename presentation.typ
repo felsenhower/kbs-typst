@@ -19,7 +19,7 @@
     theme: slides-default-theme(color: rgb("#cc0000"))
 )
 
-#let slides_font = "Latin Modern Sans"
+#let slides_font = ("Latin Modern Sans", "Roboto Sans")
 #let small_size = 17pt
 
 #set text(
@@ -109,7 +109,7 @@
 ]
 
 #let quirk-slide(content) = {
-  let num_images = 10
+  let num_images = 20
   let images = num_images * (image("assets/vz123.svg"), )
   let image_grid = grid(columns: num_images, ..images)
   slide()[
@@ -140,7 +140,7 @@
   + Einführung
   + Typesetting
   + Scripting
-  + Packages
+  + Module ($eq.est$ Packages)
   + Fazit
 ]
 
@@ -218,7 +218,7 @@
   )
 ]
 
-#new-section("Benutzung")
+#new-section("Typesetting")
 
 #slide(title: "Benutzung")[
   + Command Line
@@ -301,15 +301,31 @@
 ]
 
 #slide(title: "Formatierung")[
-  #typst-example(height: 50%, "examples/10")
+  #typst-example(height: 66%, "examples/01")
 ]
 
 #slide(title: "Formatierung")[
-  #typst-example(height: 50%, "examples/11")
+  #typst-example(height: 66%, "examples/10")
 ]
 
 #slide(title: "Formatierung")[
-  #typst-example(height: 50%, "examples/12")
+  #typst-example(height: 66%, "examples/11")
+]
+
+#slide(title: "Formatierung")[
+  #typst-example(height: 66%, "examples/12")
+]
+
+#slide(title: "Formatierung")[
+  #typst-example(height: 66%, "examples/17")
+]
+
+#slide(title: "Formatierung")[
+  #typst-example(height: 66%, "examples/18")
+]
+
+#slide(title: "Formatierung")[
+  #typst-example(height: 66%, "examples/19")
 ]
 
 #slide(title: "Formatierung")[
@@ -320,20 +336,28 @@
   Bisher gibt es keine `datetime`-Funktionalität.
 ]
 
-#slide(
-  title: "Lorem Ipsum")[
-  /*title: "Lorem Ipsum" + footnote("https://de.wikipedia.org/wiki/Lorem_ipsum")
-)[*/
-  #side-by-side-example(height: 72%,
-    raw(read("examples/lorem.py"), lang: "py"),
-    uncover((beginning: 2))[
-      #raw(read("examples/lorem.typ"), lang: "typ")
-    ]
-  )
-  /*
-  #v(-5mm)
+#new-section[Scripting]
 
-  #footnotes()*/
+#slide(title: "Scripting")[
+  #v(4mm)
+
+  #typst-example(height: 72%, "examples/16")
+]
+
+#slide(title: "Scripting")[
+  #v(4mm)
+
+  #typst-example(height: 72%, "examples/15")
+]
+
+#slide(title: "Scripting")[
+  - Typen
+    - Primitives und praktische Datenstrukturen
+  - Kontrollstrukturen
+    - `if`, `for`, `while`, …
+  - Variablen werden explizit deklariert.
+  - Scoping
+  - Module
 ]
 
 #slide(title: "Typen")[
@@ -377,27 +401,63 @@
   Funktionen und Variablen.
 ]
 
-#new-section("Packages")
-
-#slide(title: "Planned Features")[
-  #align(center + horizon)[
-    #image("assets/planned_features.png", width: 80%)
-  ]
+#slide(title: "Lorem Ipsum")[
+  #typst-example(height: 66%, "examples/01")
 ]
 
-#slide(title: "Packages")[
+#slide(
+  title: "Lorem Ipsum")[
+  /*title: "Lorem Ipsum" + footnote("https://de.wikipedia.org/wiki/Lorem_ipsum")
+)[*/
+  #side-by-side-example(height: 72%,
+    raw(read("examples/lorem.py"), lang: "py"),
+    uncover((beginning: 2))[
+      #raw(read("examples/lorem2.typ"), lang: "typ")
+    ]
+  )
+  /*
+  #v(-5mm)
+
+  #footnotes()*/
+]
+
+#new-section("Module")
+
+#slide(title: "Module")[
   #v(10mm)
 
   - Viele#footnote(
       "(eigentlich selbstverständliche)"
-    ) Dinge müssen über Packages "nachgerüstet" werden
+    ) Dinge müssen über Module "nachgerüstet" werden
   - Derzeit gibt es *keinen* Package-Manager.
-  - Viele hilfreiche Packages gibt es hier: \
+  - Viele hilfreiche Module gibt es hier: \
     https://github.com/qjcg/awesome-typst
 
   #v(10mm)
 
   #footnotes()
+]
+
+#slide(title: "Module")[
+  #typst-example(height: 50%, "examples/01")
+]
+
+#slide(title: "Module")[
+  #typst-example(height: 50%, "examples/20")
+]
+
+#slide(title: "Module")[
+  #typst-example(height: 50%, "examples/21")
+]
+
+#slide(title: "Module")[
+  #typst-example(height: 50%, "examples/22")
+]
+
+#slide(title: "Planned Features")[
+  #align(center + horizon)[
+    #image("assets/planned_features.png", width: 80%)
+  ]
 ]
 
 #slide(title: "Templates")[
@@ -553,17 +613,7 @@
 #new-section[Fazit]
 
 #slide(title: "Fazit")[
-
-]
-
-#slide(theme-variant: "wake up")[
-
-]
-
-#slide(title: "Wieso ist typst so schnell?")[
-
-]
-
-#slide(title: "Packages importieren")[
-  
+  - Typst ist sehr jung, aber dafür überraschend ausgereift
+  - Viele Features fehlen aber noch
+  - Scripting macht Spaß
 ]
