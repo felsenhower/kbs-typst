@@ -477,6 +477,8 @@
   - https://github.com/andreasKroepelin/typst-slides
     - Seht ihr hier gerade
     - Unterstützt Themes
+  - https://github.com/lvignoli/diapo
+    - Einfacher
 ]
 
 #slide(title: "Footnotes")[
