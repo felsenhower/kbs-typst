@@ -139,6 +139,7 @@
 
 #slide(title: "Agenda")[
   + Einführung
+  + Benutzung
   + Typesetting
   + Scripting
   + Module ($eq.est$ Packages)
@@ -219,7 +220,7 @@
   )
 ]
 
-#new-section("Typesetting")
+#new-section("Benutzung")
 
 #slide(title: "Benutzung")[
   + Command Line
@@ -247,6 +248,8 @@
     "https://typst.app/docs/tutorial/"
     )[Typst-Tutorial].
 ]
+
+#new-section("Typesetting")
 
 #slide(title: "Mein erstes Dokument")[
   #typst-example(height: 50%, "examples/01")
