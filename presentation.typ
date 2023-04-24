@@ -205,7 +205,9 @@
   
   #let latex-no-typst-yes(text) = (uncover("1-")[#text], uncover("1-")[#no], uncover("1-")[#yes],)
   #let latex-yes-typst-no(text) = (uncover("2-")[#text], uncover("2-")[#yes], uncover("2-")[#no],)
-  #let latex-yes-typst-yes(text) = (uncover("3-")[#text], uncover("3-")[#yes], uncover("3-")[#yes],)
+  #let latex-maybe-typst-yes(text) = (uncover("3-")[#text], uncover("3-")[(#yes)], uncover("3-")[#yes],)
+  #let latex-yes-typst-yes(text) = (uncover("4-")[#text], uncover("4-")[#yes], uncover("4-")[#yes],)
+  
   #table(
     columns: (auto, 1fr, 1fr),
     align: center + horizon,
@@ -216,6 +218,7 @@
     ..latex-no-typst-yes[Einfaches Scripting],
     ..latex-yes-typst-no[Viele Packages],
     ..latex-yes-typst-no[Verbreitung],
+    ..latex-maybe-typst-yes[UTF-8],
     ..latex-yes-typst-yes[Beschissener Name],
   )
 ]
