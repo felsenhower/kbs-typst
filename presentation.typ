@@ -223,6 +223,24 @@
   )
 ]
 
+#slide()[
+  #align(center + horizon)[
+    #image("assets/google-latex.png", height: 40%)
+
+    #v(-5mm)
+
+    #uncover("2-")[
+      #image("assets/google-typst.png", height: 40%)
+    ]
+  ]  
+]
+
+#slide()[
+  #align(center + horizon)[
+    #image("assets/chatgpt.png", height: 80%)
+  ]
+]
+
 #new-section("Benutzung")
 
 #slide(title: "Benutzung")[
