@@ -325,6 +325,22 @@
   #typst-example(height: 50%, "examples/09")
 ]
 
+#slide(title: "Tabellen")[
+  #typst-example(height: 50%, "examples/23")
+]
+
+#slide(title: "Tabellen")[
+  #typst-example(height: 50%, "examples/25")
+]
+
+#slide(title: "Tabellen")[
+  #typst-example(height: 50%, "examples/24")
+]
+
+#slide(title: "Tabellen")[
+  #typst-example(height: 50%, "examples/26")
+]
+
 #slide(title: "Formatierung")[
   #typst-example(height: 66%, "examples/01")
 ]
