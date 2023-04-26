@@ -675,7 +675,16 @@
 #new-section[Fazit]
 
 #slide(title: "Fazit")[
-  - Typst ist sehr jung, aber dafür überraschend ausgereift
-  - Viele Features fehlen aber noch
-  - Scripting macht Spaß
+  #uncover("2")[
+    #v(-30mm)
+    #align(center + horizon)[
+        #image("assets/thumbs-thumbs-up-kid.jpg", width: 65%)
+    ]
+    #v(-100mm)
+  ]
+  #uncover("3")[
+    - Typst ist überraschend ausgereift
+    - Vermutlich passiert da in den nächsten Monaten noch was...
+    - Das Scripting macht Spaß
+  ]
 ]
