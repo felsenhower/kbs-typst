@@ -379,19 +379,19 @@
 
 #new-section[Scripting]
 
-#slide(title: "Scripting")[
+#slide(title: "Fibonacci")[
   #v(4mm)
 
   #typst-example(height: 72%, "examples/16")
 ]
 
-#slide(title: "Scripting")[
+#slide(title: "Fibonacci")[
   #v(4mm)
 
   #typst-example(height: 72%, "examples/15")
 ]
 
-#slide(title: "Scripting")[
+#slide(title: "Data Loading")[
   #text(size: small_size)[
     #raw(read("examples/sample.json"), lang: "json")
   ]
@@ -401,7 +401,7 @@
   #typst-example(height: 45%, "examples/27")
 ]
 
-#slide(title: "Scripting")[
+#slide(title: "Data Loading")[
   - Typst unterstützt nativ
     - Plain Text
     - CSV
