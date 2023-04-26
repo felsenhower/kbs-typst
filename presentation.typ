@@ -392,6 +392,25 @@
 ]
 
 #slide(title: "Scripting")[
+  #text(size: small_size)[
+    #raw(read("examples/sample.json"), lang: "json")
+  ]
+
+  #v(4mm)
+
+  #typst-example(height: 45%, "examples/27")
+]
+
+#slide(title: "Scripting")[
+  - Typst unterstützt nativ
+    - Plain Text
+    - CSV
+    - JSON
+    - YAML
+    - XML
+]
+
+#slide(title: "Scripting")[
   - Typen
     - Primitives und praktische Datenstrukturen
   - Kontrollstrukturen
