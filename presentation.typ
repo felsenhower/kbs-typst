@@ -10,6 +10,8 @@
 
 #show "LaTeX": name => LaTeX
 
+#set page(fill: white)
+
 #show: slides.with(
     authors: "Ruben 14felgenh",
     short-authors: "Ruben 14felgenh",
