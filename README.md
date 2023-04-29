@@ -7,6 +7,9 @@ Folien für das [KunterBunteSeminar (KBS)](https://mafiasi.de/KBS) über [Typst]
 * `typst`
 * `make`
 * `pdf2svg`
+* Schriftarten:
+    * Latin Modern Sans (als Fallback wird DejaVu Sans benutzt, was built-in sein sollte, aber nicht so gut aussieht)
+    * Comic Sans MS (fragt nicht)
 
 ## Bauen:
 
