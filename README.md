@@ -2,6 +2,8 @@
 
 Folien für das [KunterBunteSeminar (KBS)](https://mafiasi.de/KBS) über [Typst](https://github.com/typst/typst).
 
+[![Folien](thumbnail.svg)](https://raw.githubusercontent.com/felsenhower/kbs-typst/master/presentation.pdf)
+
 ## Dependencies
 
 * `typst`
