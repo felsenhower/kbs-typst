@@ -20,7 +20,7 @@
     theme: slides-hamburg-theme()
 )
 
-#let slides_font = ("Latin Modern Sans", )
+#let slides_font = ("Latin Modern Sans", "DejaVu Sans")
 #let small_size = 17pt
 
 #set text(
